@@ -1,0 +1,16 @@
+.population_container {
+  padding: 20px 60px;
+}
+
+.country_info_container {
+  display: flex;
+  align-items: center;
+}
+
+.country_info_item {
+  margin-right: 12px;
+}
+
+.heading_container {
+  padding: 12px 0;
+}

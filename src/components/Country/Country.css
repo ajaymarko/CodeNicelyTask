@@ -1,0 +1,40 @@
+.container {
+  padding: 40px 60px;
+}
+.input_main_container {
+  padding: 20px 0;
+}
+
+.input_container {
+  width: 300px;
+  padding: 12px;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.countries_main_container {
+  padding: 20px 0;
+}
+
+.country_data_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid gray;
+  border-top: none;
+  padding: 8px;
+}
+
+.country_data_container:first-child {
+  font-weight: 700;
+  border-top: 1px solid gray;
+}
+
+.countryname_container,
+.iso2_container,
+.longitude_container,
+.latitude_container {
+  width: 25%;
+  text-align: center;
+}

@@ -1,0 +1,38 @@
+.container {
+  padding: 40px 60px;
+}
+.input_main_container {
+  padding: 20px 0;
+}
+
+.input_container {
+  width: 300px;
+  padding: 12px;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.state_main_container {
+  padding: 20px 0;
+}
+
+.state_data_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid gray;
+  border-top: none;
+  padding: 8px;
+}
+
+.state_data_container:first-child {
+  font-weight: 700;
+  border-top: 1px solid gray;
+}
+
+.statename_container,
+.state_code_container {
+  width: 33%;
+  text-align: center;
+}
