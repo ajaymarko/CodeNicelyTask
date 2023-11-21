@@ -3,6 +3,7 @@ import State from "../State/State";
 import "./Country.css";
 
 const Country = () => {
+  const [initialCountryList, setInitialCountryList] = useState([]);
   const [countryList, setCountryList] = useState([]);
   const [searchCountry, setSearchCountry] = useState("");
   const [showStateData, setShowStateData] = useState({
@@ -20,6 +21,7 @@ const Country = () => {
       const finalResult = result.data;
 
       setCountryList(finalResult);
+      setInitialCountryList(finalResult);
     } catch (error) {
       console.log("error", error);
     }
@@ -33,6 +35,18 @@ const Country = () => {
 
   useEffect(() => {
     fetchCountryData();
+  }, []);
+
+  useEffect(() => {
+    const filteredList = initialCountryList.filter((countryItem) => {
+      const { name } = countryItem || {};
+      const searchOnData = name.toLowerCase();
+      const searchCountryName = searchCountry.toLowerCase();
+
+      return searchOnData.includes(searchCountryName);
+    });
+
+    setCountryList(filteredList);
   }, [searchCountry]);
 
   if (showStateData.show) {

@@ -4,6 +4,7 @@ import "./State.css";
 
 const State = ({ country }) => {
   const { name: countryName } = country || {};
+  const [initialStateList, setInitialStateList] = useState([]);
   const [stateSearch, setStateSearch] = useState("");
 
   const [stateList, setStateList] = useState([]);
@@ -28,6 +29,7 @@ const State = ({ country }) => {
       const stateList = result?.data?.states;
 
       setStateList(stateList);
+      setInitialStateList(stateList);
     } catch (error) {
       console.log("error", error);
     }
@@ -41,6 +43,18 @@ const State = ({ country }) => {
 
   useEffect(() => {
     fetchStateData();
+  }, []);
+
+  useEffect(() => {
+    const filteredList = initialStateList.filter((countryItem) => {
+      const { name } = countryItem || {};
+      const searchOnData = name.toLowerCase();
+      const searchCountryName = stateSearch.toLowerCase();
+
+      return searchOnData.includes(searchCountryName);
+    });
+
+    setStateList(filteredList);
   }, [stateSearch]);
 
   return (
@@ -61,7 +75,7 @@ const State = ({ country }) => {
 
         <div className="state_main_container">
           <div className="state_data_container">
-            <div className="statename_container">Country Name</div>
+            <div className="statename_container">State Name</div>
 
             <div className="state_code_container">ISO 3 CODE</div>
           </div>
